@@ -1,0 +1,14 @@
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+h5py
+sklearn
+torch
+skorch
+mne
+joblib
+autoreject
+wfdb
+https://api.github.com/repos/braindecode/braindecode/zipball/master
