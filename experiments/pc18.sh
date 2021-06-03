@@ -5,15 +5,15 @@
 # Some shared parameters across experiments
 SEED=87
 N_JOBS=40
-DETERMINISTIC=true
 NUM_WORKERS=40
+DETERMINISTIC=true
 
 DATASET=pc18
 DROPOUT=0.5
 BATCH_SIZE=64
-LR=0.0005
-N_EPOCHS=50
-PATIENCE=10
+LR=0.001
+N_EPOCHS=40
+PATIENCE=7
 WEIGHT_DECAY=0.001
 
 # Make a directory for saving the results

@@ -61,6 +61,7 @@ def main(args):
         windows_dataset, args.valid_size, args.test_size,
         random_state_valid=args.random_state_valid,
         random_state_test=args.random_state_test)
+    del windows_dataset
 
     if args.denoising == 'data_augm':
         train_set.transform = AdditiveWhiteNoise(
@@ -110,7 +111,8 @@ def main(args):
         model = SleepStagerChambon2018(
             n_channels, sfreq, n_conv_chs=args.n_conv_chs,
             input_size_s=input_size_samples / sfreq, pad_size_s=0.1,
-            n_classes=n_classes, dropout=args.dropout).to(device)
+            n_classes=n_classes, dropout=args.dropout, apply_batch_norm=True
+            ).to(device)
     else:
         raise NotImplementedError
 
@@ -240,8 +242,8 @@ if __name__ == '__main__':
     # Training hyperparameters
     parser.add_argument('--lr', type=float, default=1e-3,
                         help='learning rate (default: 1e-3)')
-    parser.add_argument('--batch_size', type=int, default=512,
-                        help='batch size (default: 512)')
+    parser.add_argument('--batch_size', type=int, default=64,
+                        help='batch size (default: 64)')
     parser.add_argument('--n_epochs', type=int, default=5,
                         help='number of training epochs (default: 5)')
     parser.add_argument('--patience', type=int, default=5,
