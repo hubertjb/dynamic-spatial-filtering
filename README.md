@@ -1,8 +1,6 @@
 # Dynamic spatial filtering
 
-Code for Banville et al., "Robust learning from corrupted EEG with dynamic spatial filtering", arXiv, 2021.
-
-https://arxiv.org/abs/2105.12916
+Code for Banville et al., ["Robust learning from corrupted EEG with dynamic spatial filtering"](https://www.sciencedirect.com/science/article/pii/S1053811922001239), NeuroImage, 2022.
 
 > **tl;dr**
 We introduce a spatial attention block that dynamically handles corrupted EEG channels by predicting spatial filters on a window-by-window level. This dynamic spatial filtering (DSF) block is trained end-to-end on the predictive task with data augmentation, and its attention values can be visualized to understand which channels are important.
@@ -39,10 +37,13 @@ export JOBLIB_CACHE_DIR=none
 ## Citation
 
 ```
-@article{banville2021robust,
+@article{banville2022robust,
   title={Robust learning from corrupted EEG with dynamic spatial filtering},
   author={Banville, Hubert and Wood, Sean U. N. and Aimone, Chris and Engemann, Denis-Alexander and Gramfort, Alexandre},
-  journal={arXiv},
-  year={2021}
+  journal={NeuroImage},
+  volume={251},
+  pages={118994},
+  year={2022},
+  publisher={Elsevier}
 }
 ```
