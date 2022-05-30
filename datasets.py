@@ -13,7 +13,7 @@ import pandas as pd
 from mne.datasets.utils import _get_path
 from mne.datasets.sleep_physionet._utils import _fetch_one
 from braindecode.datasets import BaseDataset, BaseConcatDataset
-from braindecode.datautil.preprocess import _preprocess
+from braindecode.preprocessing.preprocess import _preprocess
 from joblib import Parallel, delayed
 
 
@@ -297,11 +297,10 @@ class PC18(BaseConcatDataset):
             'age': record_info['Age'],
             'sex': record_info['Sex']
         }, name='')
+        out = BaseDataset(out, desc)
 
         if preproc is not None:
-            _preprocess(out, preproc)
-
-        out = BaseDataset(out, desc)
+            _preprocess(out, None, preproc)
 
         if windower is not None:
             out = windower(out)

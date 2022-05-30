@@ -126,6 +126,8 @@ class AdditiveWhiteNoise(object):
         of all windows. If False, each window will be corupted with its own
         noise parameters.
     """
+    __name__ = 'AdditiveWhiteNoise'
+
     def __init__(self, p, noise_strength, noise_std=None,
                  random_state='global', noise_random_state=None,
                  recording_wise=True):

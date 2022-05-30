@@ -9,9 +9,9 @@ import torch
 import numpy as np
 from joblib import Memory, Parallel, delayed
 from sklearn.model_selection import train_test_split
-from braindecode.datautil.preprocess import (
+from braindecode.preprocessing.preprocess import (
     preprocess, Preprocessor, _preprocess)
-from braindecode.datautil.windowers import _create_windows_from_events
+from braindecode.preprocessing.windowers import _create_windows_from_events
 from braindecode.datasets import BaseConcatDataset
 from braindecode.datasets.sleep_physionet import SleepPhysionet
 
@@ -98,7 +98,7 @@ def parallel_preproc(windows_dataset, preproc, n_jobs):
         if ds.windows.preload:  # Deep copy so that numpy arrays are modifiable
             ds = copy.deepcopy(ds)
         try:
-            _preprocess(ds.windows.load_data(), preproc)
+            _preprocess(ds, None, preproc)
         except Exception as e:
             print(e)
             print('Not applying preproc')
